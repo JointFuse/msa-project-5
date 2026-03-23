@@ -1,0 +1,27 @@
+@startuml
+!include <C4/C4_Container.puml>
+!include <C4/C4_Context.puml>
+
+LAYOUT_TOP_DOWN()
+
+title Диаграмма сервиса To Be
+
+Person(b2b_client, "B2B Клиент")
+
+System_Boundary(k8s, "k8s") {
+    Container(cronjob, "CronJob: batch-price-generator", "Kubernetes CronJob", "Запускает задание по расписанию")
+    Container_Ext(job_pod, "Job Pod", "Kubernetes Pod")
+    Container(app_container, "BatchProcessing", "Docker Container (Python)", "Содержит бизнес-логику формирования прайс-листов")
+    ContainerDb(postgres, "БД прайс-листов", "Container: PostgresSQL", "Актуальные данные о ценах на товары")
+    ContainerDb(s3, "Облачное хранилище", "S3", "Хранилище сгенерированных файлов")
+    Container(web_form, "ЛК B2B клиентов", "", "Предоставляет доступ к актуальным ценам")
+}
+
+Rel(cronjob, job_pod, "Создаёт")
+Rel(job_pod, app_container, "Запускает")
+Rel(app_container, postgres, "Выполняет SQL-запросы", "psycopg2 / SQLAlchemy")
+Rel(app_container, s3, "Загружает файлы", "boto3 / SDK")
+Rel(web_form, s3, "Получает данные")
+Rel(b2b_client, web_form, "Использует")
+
+@enduml
