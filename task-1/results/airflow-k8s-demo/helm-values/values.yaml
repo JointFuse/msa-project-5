@@ -1,0 +1,62 @@
+images:
+  airflow:
+    repository: my-airflow-custom
+    tag: latest
+    pullPolicy: IfNotPresent
+
+executor: KubernetesExecutor
+
+# Метабаза
+postgresql:
+  enabled: true
+  auth:
+    postgresqlUsername: airflow
+    postgresqlPassword: airflow
+    postgresqlDatabase: airflow
+  persistence:
+    enabled: true
+    size: 10Gi
+
+# Брокер сообщений
+redis:
+  enabled: true
+  password: airflow
+
+kubernetesExecutor:
+  enabled: true
+  workerContainerRepository: my-airflow-custom
+  workerContainerTag: latest
+  workerContainerImagePullPolicy: IfNotPresent
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 250m
+    limits:
+      memory: 1Gi
+      cpu: 500m
+  restartPolicy: Never
+  env:
+    - name: AIRFLOW__CORE__ENABLE_XCOM_PICKLING
+      value: "True"
+    - name: AIRFLOW__SMTP__SMTP_HOST
+      value: "mailhog"
+    - name: AIRFLOW__SMTP__SMTP_PORT
+      value: "1025"
+    - name: AIRFLOW__SMTP__SMTP_MAIL_FROM
+      value: "airflow@example.com"
+  volumes:
+    - name: data-volume
+      hostPath:
+        path: ./data
+  volumeMounts:
+    - name: data-volume
+      mountPath: /opt/airflow/data
+
+web:
+  replicas: 1
+  service:
+    type: NodePort
+    nodePort: 30808
+
+scheduler:
+  replicas: 1
