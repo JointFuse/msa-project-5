@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: db-exporter
+spec:
+  schedule: "0 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        spec:
+          containers:
+          - name: exporter
+            image: db-exporter
+            imagePullPolicy: IfNotPresent
+            envFrom:
+            - configMapRef:
+                name: db-exporter-config
+            env:
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: EXPORTER_USER
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: EXPORTER_PASSWORD
+            volumeMounts:
+            - name: exports-volume
+              mountPath: /exports
+          volumes:
+          - name: exports-volume
+            persistentVolumeClaim:
+              claimName: db-exports-pvc
+          restartPolicy: OnFailure

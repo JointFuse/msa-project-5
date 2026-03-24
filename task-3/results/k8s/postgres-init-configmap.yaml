@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-script
+data:
+  init.sql: |
+    CREATE USER exporter WITH PASSWORD 'exporterpass';
+    
+    CREATE TABLE IF NOT EXISTS employees (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(100),
+        department VARCHAR(50),
+        salary NUMERIC(10,2),
+        hire_date DATE
+    );
+    
+    INSERT INTO employees (name, department, salary, hire_date) VALUES
+        ('Иван Петров', 'IT', 75000.00, '2020-01-15'),
+        ('Мария Смирнова', 'HR', 65000.00, '2019-03-22'),
+        ('Алексей Иванов', 'IT', 80000.00, '2021-06-10'),
+        ('Елена Кузнецова', 'Finance', 90000.00, '2018-11-05'),
+        ('Дмитрий Соколов', 'IT', 72000.00, '2022-02-28');
+    
+    GRANT SELECT ON employees TO exporter;
+    GRANT USAGE ON SCHEMA public TO exporter;
