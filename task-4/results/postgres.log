@@ -1,0 +1,59 @@
+2026-03-29 14:32:30.173 | The files belonging to this database system will be owned by user "postgres".
+2026-03-29 14:32:30.173 | This user must also own the server process.
+2026-03-29 14:32:30.173 | 
+2026-03-29 14:32:30.173 | The database cluster will be initialized with locale "en_US.utf8".
+2026-03-29 14:32:30.173 | The default database encoding has accordingly been set to "UTF8".
+2026-03-29 14:32:30.173 | The default text search configuration will be set to "english".
+2026-03-29 14:32:30.173 | 
+2026-03-29 14:32:30.173 | Data page checksums are enabled.
+2026-03-29 14:32:30.173 | 
+2026-03-29 14:32:30.173 | fixing permissions on existing directory /var/lib/postgresql/18/docker ... ok
+2026-03-29 14:32:30.176 | creating subdirectories ... ok
+2026-03-29 14:32:30.176 | selecting dynamic shared memory implementation ... posix
+2026-03-29 14:32:30.184 | selecting default "max_connections" ... 100
+2026-03-29 14:32:30.192 | selecting default "shared_buffers" ... 128MB
+2026-03-29 14:32:30.197 | selecting default time zone ... Etc/UTC
+2026-03-29 14:32:30.197 | creating configuration files ... ok
+2026-03-29 14:32:30.263 | running bootstrap script ... ok
+2026-03-29 14:32:30.455 | performing post-bootstrap initialization ... ok
+2026-03-29 14:32:30.530 | syncing data to disk ... ok
+2026-03-29 14:32:30.530 | 
+2026-03-29 14:32:30.530 | 
+2026-03-29 14:32:30.530 | Success. You can now start the database server using:
+2026-03-29 14:32:30.530 | 
+2026-03-29 14:32:30.530 |     pg_ctl -D /var/lib/postgresql/18/docker -l logfile start
+2026-03-29 14:32:30.530 | 
+2026-03-29 14:32:30.530 | initdb: warning: enabling "trust" authentication for local connections
+2026-03-29 14:32:30.530 | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-03-29 14:32:30.550 | waiting for server to start....2026-03-29 11:32:30.550 UTC [51] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-03-29 14:32:30.550 | 2026-03-29 11:32:30.550 UTC [51] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-03-29 14:32:30.553 | 2026-03-29 11:32:30.553 UTC [57] LOG:  database system was shut down at 2026-03-29 11:32:30 UTC
+2026-03-29 14:32:30.555 | 2026-03-29 11:32:30.555 UTC [51] LOG:  database system is ready to accept connections
+2026-03-29 14:32:30.642 |  done
+2026-03-29 14:32:30.642 | server started
+2026-03-29 14:32:30.703 | CREATE DATABASE
+2026-03-29 14:32:30.703 | 
+2026-03-29 14:32:30.703 | 
+2026-03-29 14:32:30.703 | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+2026-03-29 14:32:30.720 | CREATE TABLE
+2026-03-29 14:32:30.720 | CREATE TABLE
+2026-03-29 14:32:30.721 | 
+2026-03-29 14:32:30.721 | 
+2026-03-29 14:32:30.721 | waiting for server to shut down....2026-03-29 11:32:30.721 UTC [51] LOG:  received fast shutdown request
+2026-03-29 14:32:30.722 | 2026-03-29 11:32:30.722 UTC [51] LOG:  aborting any active transactions
+2026-03-29 14:32:30.723 | 2026-03-29 11:32:30.723 UTC [51] LOG:  background worker "logical replication launcher" (PID 60) exited with exit code 1
+2026-03-29 14:32:30.723 | 2026-03-29 11:32:30.723 UTC [55] LOG:  shutting down
+2026-03-29 14:32:30.724 | 2026-03-29 11:32:30.724 UTC [55] LOG:  checkpoint starting: shutdown immediate
+2026-03-29 14:32:30.753 | 2026-03-29 11:32:30.753 UTC [55] LOG:  checkpoint complete: wrote 943 buffers (5.8%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.022 s, total=0.030 s; sync files=307, longest=0.007 s, average=0.001 s; distance=4371 kB, estimate=4371 kB; lsn=0/1BA44C0, redo lsn=0/1BA44C0
+2026-03-29 14:32:30.757 | 2026-03-29 11:32:30.757 UTC [51] LOG:  database system is shut down
+2026-03-29 14:32:30.822 |  done
+2026-03-29 14:32:30.822 | server stopped
+2026-03-29 14:32:30.822 | 
+2026-03-29 14:32:30.822 | PostgreSQL init process complete; ready for start up.
+2026-03-29 14:32:30.822 | 
+2026-03-29 14:32:30.834 | 2026-03-29 11:32:30.834 UTC [1] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-03-29 14:32:30.834 | 2026-03-29 11:32:30.834 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-03-29 14:32:30.834 | 2026-03-29 11:32:30.834 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-03-29 14:32:30.835 | 2026-03-29 11:32:30.835 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-03-29 14:32:30.839 | 2026-03-29 11:32:30.839 UTC [75] LOG:  database system was shut down at 2026-03-29 11:32:30 UTC
+2026-03-29 14:32:30.841 | 2026-03-29 11:32:30.841 UTC [1] LOG:  database system is ready to accept connections

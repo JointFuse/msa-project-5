@@ -9,6 +9,8 @@ services:
       - POSTGRES_USER=$POSTGRESDB_USER
       - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
       - POSTGRES_DB=$POSTGRESDB_DATABASE
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
 

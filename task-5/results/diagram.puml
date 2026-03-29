@@ -1,0 +1,33 @@
+@startuml diagram
+!include <C4/C4_Container.puml>
+!include <C4/C4_Context.puml>
+
+
+title Контекстная диаграмма TradeWare System
+
+Person(worker, "Сотрудник склада", "Использует Web-приложение загрузки отчетов")
+Person(admin, "Администратор", "Управляет задачами, контролирует выполнение")
+
+System_Boundary(tradeware, "TradeWare System") {
+    Container(front, "Web-интерфейс", "JS/Angular", "Приложение для пользователя")
+    Container(monolith, "WildFly", "Java", "API для управления остатками")
+    Container(batch, "ETL-сервис", "Spring Batch", "Выполняет валидацию, обогащение и загрузку данных")
+    ContainerDb(postgres, "TradeWare DB", "PostgreSQL", "Хранилище остатков и справочников")
+    Container(gcs, "TradeWare cloud storage", "GCS", "Хранилище CSV-файлов")
+    Container(prometheus, "Monitor", "Prometheus/Grafana", "Сбор метрик и мониторинг")
+    Container(elk, "Log", "ELK/Loki", "Централизованное логирование")
+}
+
+Rel(worker, front, "использует")
+Rel(front, batch, "вызывает", "REST API JSON/HTTP")
+Rel(front, monolith, "вызывает", "REST API JSON/HTTP")
+Rel(batch, gcs, "Сохраняет/читает файлы", "GCS API")
+Rel(batch, postgres, "Читает справочники, пишет результаты", "JDBC")
+Rel(batch, prometheus, "Экспортирует метрики", "HTTP")
+Rel(batch, elk, "Отправляет логи", "Fluentd")
+Rel(monolith, postgres, "Читает обработанные данные", "JDBC")
+Rel(admin, batch, "Запускает/перезапускает задачи, смотрит статус", "REST API")
+Rel(admin, prometheus, "Просматривает дашборды", "HTTP")
+Rel(admin, elk, "Просматривает логи", "HTTP")
+
+@enduml
