@@ -1,0 +1,47 @@
+2026-03-29 16:02:52.464 | 
+2026-03-29 16:02:52.464 |   .   ____          _            __ _ _
+2026-03-29 16:02:52.464 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-29 16:02:52.464 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-29 16:02:52.464 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-29 16:02:52.464 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-29 16:02:52.464 |  =========|_|==============|___/=/_/_/_/
+2026-03-29 16:02:52.464 | 
+2026-03-29 16:02:52.465 |  :: Spring Boot ::                (v3.5.3)
+2026-03-29 16:02:52.465 | 
+2026-03-29 16:02:52.514 | 2026-03-29 13:02:52.511 [main] traceId= spanId= INFO  c.e.b.BatchProcessingApplication - Starting BatchProcessingApplication v0.0.1-SNAPSHOT using Java 17.0.1 with PID 1 (/app.jar started by root in /)
+2026-03-29 16:02:52.515 | 2026-03-29 13:02:52.515 [main] traceId= spanId= INFO  c.e.b.BatchProcessingApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-29 16:02:53.253 | 2026-03-29 13:02:53.253 [main] traceId= spanId= DEBUG o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /app.jar
+2026-03-29 16:02:53.253 | 2026-03-29 13:02:53.253 [main] traceId= spanId= DEBUG o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /app.jar
+2026-03-29 16:02:53.254 | 2026-03-29 13:02:53.253 [main] traceId= spanId= DEBUG o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2026-03-29 16:02:53.267 | 2026-03-29 13:02:53.267 [main] traceId= spanId= INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-29 16:02:53.272 | 2026-03-29 13:02:53.272 [main] traceId= spanId= INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-29 16:02:53.273 | 2026-03-29 13:02:53.273 [main] traceId= spanId= INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 16:02:53.273 | 2026-03-29 13:02:53.273 [main] traceId= spanId= INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2026-03-29 16:02:53.289 | 2026-03-29 13:02:53.288 [main] traceId= spanId= INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 16:02:53.289 | 2026-03-29 13:02:53.289 [main] traceId= spanId= INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 742 ms
+2026-03-29 16:02:53.502 | 2026-03-29 13:02:53.500 [main] traceId= spanId= INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-29 16:02:53.573 | 2026-03-29 13:02:53.573 [main] traceId= spanId= INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5bf4764d
+2026-03-29 16:02:53.574 | 2026-03-29 13:02:53.574 [main] traceId= spanId= INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-29 16:02:53.893 | 2026-03-29 13:02:53.892 [main] traceId= spanId= INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-03-29 16:02:53.919 | 2026-03-29 13:02:53.919 [main] traceId= spanId= INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-03-29 16:02:53.927 | 2026-03-29 13:02:53.927 [main] traceId= spanId= INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-29 16:02:53.938 | 2026-03-29 13:02:53.938 [main] traceId= spanId= INFO  c.e.b.BatchProcessingApplication - Started BatchProcessingApplication in 1.687 seconds (process running for 1.928)
+2026-03-29 16:03:05.662 | 2026-03-29 13:03:05.662 [http-nio-8080-exec-1] traceId= spanId= INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-29 16:03:05.662 | 2026-03-29 13:03:05.662 [http-nio-8080-exec-1] traceId= spanId= INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-29 16:03:05.663 | 2026-03-29 13:03:05.663 [http-nio-8080-exec-1] traceId= spanId= INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-03-29 16:03:05.695 | 2026-03-29 13:03:05.694 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  c.e.batchprocessing.JobController - Request received | traceId=69c92309cc0a0ea1ffac6091cf2514e4 | spanId=ffac6091cf2514e4 | uri=/api/jobs/importProductJob
+2026-03-29 16:03:05.721 | 2026-03-29 13:03:05.721 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  o.s.b.c.l.s.TaskExecutorJobLauncher - Job: [SimpleJob: [name=importProductJob]] launched with the following parameters: [{'runId':'{value=manual, type=class java.lang.String, identifying=true}'}]
+2026-03-29 16:03:05.731 | 2026-03-29 13:03:05.730 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=423a3fbbeb987b5f INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [step1]
+2026-03-29 16:03:05.744 | 2026-03-29 13:03:05.742 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=0c18ec1528f5e3f2 INFO  c.e.b.ProductItemProcessor - Transforming (Product[productId=1, productSku=20001, productName=hammer, productAmount=45, productData=Loyality_off]) into (Product[productId=1, productSku=20001, productName=hammer, productAmount=45, productData=Loyality_off])
+2026-03-29 16:03:05.744 | 2026-03-29 13:03:05.744 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=0c18ec1528f5e3f2 INFO  c.e.b.ProductItemProcessor - Transforming (Product[productId=2, productSku=30001, productName=sink, productAmount=20, productData=Loyality_off]) into (Product[productId=2, productSku=30001, productName=sink, productAmount=20, productData=Loyality_off])
+2026-03-29 16:03:05.745 | 2026-03-29 13:03:05.745 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=0c18ec1528f5e3f2 INFO  c.e.b.ProductItemProcessor - Transforming (Product[productId=3, productSku=40001, productName=roof_shell, productAmount=256, productData=Loyality_on]) into (Product[productId=3, productSku=40001, productName=roof_shell, productAmount=256, productData=Loyality_on])
+2026-03-29 16:03:05.750 | 2026-03-29 13:03:05.750 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=0c18ec1528f5e3f2 INFO  c.e.b.ProductItemProcessor - Transforming (Product[productId=4, productSku=50001, productName=priming, productAmount=67, productData=Loyality_off]) into (Product[productId=4, productSku=50001, productName=priming, productAmount=67, productData=Loyality_off])
+2026-03-29 16:03:05.750 | 2026-03-29 13:03:05.750 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=0c18ec1528f5e3f2 INFO  c.e.b.ProductItemProcessor - Transforming (Product[productId=5, productSku=60001, productName=clapboard, productAmount=120, productData=Loyality_on]) into (Product[productId=5, productSku=60001, productName=clapboard, productAmount=120, productData=Loyality_on])
+2026-03-29 16:03:05.752 | 2026-03-29 13:03:05.752 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=423a3fbbeb987b5f INFO  o.s.batch.core.step.AbstractStep - Step: [step1] executed in 21ms
+2026-03-29 16:03:05.756 | 2026-03-29 13:03:05.756 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  c.e.b.JobCompletionNotificationListener - !!! JOB FINISHED! Time to verify the results
+2026-03-29 16:03:05.757 | 2026-03-29 13:03:05.757 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  c.e.b.JobCompletionNotificationListener - Transformed <Product[productId=1, productSku=20001, productName=hammer, productAmount=45, productData=Loyality_off]> in the database.
+2026-03-29 16:03:05.757 | 2026-03-29 13:03:05.757 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  c.e.b.JobCompletionNotificationListener - Transformed <Product[productId=2, productSku=30001, productName=sink, productAmount=20, productData=Loyality_off]> in the database.
+2026-03-29 16:03:05.757 | 2026-03-29 13:03:05.757 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  c.e.b.JobCompletionNotificationListener - Transformed <Product[productId=3, productSku=40001, productName=roof_shell, productAmount=256, productData=Loyality_on]> in the database.
+2026-03-29 16:03:05.757 | 2026-03-29 13:03:05.757 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  c.e.b.JobCompletionNotificationListener - Transformed <Product[productId=4, productSku=50001, productName=priming, productAmount=67, productData=Loyality_off]> in the database.
+2026-03-29 16:03:05.757 | 2026-03-29 13:03:05.757 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  c.e.b.JobCompletionNotificationListener - Transformed <Product[productId=5, productSku=60001, productName=clapboard, productAmount=120, productData=Loyality_on]> in the database.
+2026-03-29 16:03:05.759 | 2026-03-29 13:03:05.759 [http-nio-8080-exec-1] traceId=69c92309cc0a0ea1ffac6091cf2514e4 spanId=ffac6091cf2514e4 INFO  o.s.b.c.l.s.TaskExecutorJobLauncher - Job: [SimpleJob: [name=importProductJob]] completed with the following parameters: [{'runId':'{value=manual, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 31ms
