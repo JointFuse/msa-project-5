@@ -2,53 +2,54 @@
 <configuration>
     <property resource="application.properties"/>
     <contextName>${spring.application.name}</contextName>
-    <springProfile name="!non-json-logs">
+
+    <springProfile name="json-logs">
         <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
             <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
                 <providers>
+                <pattern>
                     <pattern>
-                        <pattern>
-                            {
-                            "trace": "%X{traceId:-}",
-                            "span": "%X{spanId:-}",
-                            "parent": "%X{parentId:-}",
-                            "exportable": "%X{sampled:-}",
-                            "pid": "${PID:-}"
-                            }
-                        </pattern>
+                        {
+                        "trace": "%X{traceId:-}",
+                        "span": "%X{spanId:-}",
+                        "parent": "%X{parentId:-}",
+                        "exportable": "%X{sampled:-}",
+                        "pid": "${PID:-}"
+                        }
                     </pattern>
-                    <contextName>
-                        <fieldName>app</fieldName>
-                    </contextName>
-                    <timestamp>
-                        <fieldName>ts</fieldName>
-                        <timeZone>UTC</timeZone>
-                    </timestamp>
-                    <loggerName>
-                        <fieldName>logger</fieldName>
-                    </loggerName>
-                    <logLevel>
-                        <fieldName>level</fieldName>
-                    </logLevel>
-                    <callerData>
-                        <classFieldName>class</classFieldName>
-                        <methodFieldName>method</methodFieldName>
-                        <lineFieldName>line</lineFieldName>
-                        <fileFieldName>file</fileFieldName>
-                    </callerData>
-                    <threadName>
-                        <fieldName>thread</fieldName>
-                    </threadName>
-                    <mdc/>
-                    <arguments>
-                        <includeNonStructuredArguments>false</includeNonStructuredArguments>
-                    </arguments>
-                    <stackTrace>
-                        <fieldName>stack</fieldName>
-                    </stackTrace>
-                    <message>
-                        <fieldName>msg</fieldName>
-                    </message>
+                </pattern>
+                <contextName>
+                    <fieldName>app</fieldName>
+                </contextName>
+                <timestamp>
+                    <fieldName>ts</fieldName>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <loggerName>
+                    <fieldName>logger</fieldName>
+                </loggerName>
+                <logLevel>
+                    <fieldName>level</fieldName>
+                </logLevel>
+                <callerData>
+                    <classFieldName>class</classFieldName>
+                    <methodFieldName>method</methodFieldName>
+                    <lineFieldName>line</lineFieldName>
+                    <fileFieldName>file</fileFieldName>
+                </callerData>
+                <threadName>
+                    <fieldName>thread</fieldName>
+                </threadName>
+                <mdc/>
+                <arguments>
+                    <includeNonStructuredArguments>false</includeNonStructuredArguments>
+                </arguments>
+                <stackTrace>
+                    <fieldName>stack</fieldName>
+                </stackTrace>
+                <message>
+                    <fieldName>msg</fieldName>
+                </message>
                 </providers>
             </encoder>
         </appender>
@@ -56,10 +57,17 @@
     <springProfile name="non-json-logs">
         <include resource="org/springframework/boot/logging/logback/base.xml"/>
     </springProfile>
-    <logger name="batch-processing" level="DEBUG" additivity="false">
+
+    <logger name="org.springframework.batch" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_JSON"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.example.batchprocessing" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_JSON"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
     <root level="INFO">
+        <appender-ref ref="FILE_JSON"/>
         <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

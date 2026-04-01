@@ -15,7 +15,7 @@ System_Boundary(tradeware, "TradeWare System") {
     ContainerDb(postgres, "TradeWare DB", "PostgreSQL", "Хранилище остатков и справочников")
     Container(gcs, "TradeWare cloud storage", "GCS", "Хранилище CSV-файлов")
     Container(prometheus, "Monitor", "Prometheus/Grafana", "Сбор метрик и мониторинг")
-    Container(elk, "Log", "ELK/Loki", "Централизованное логирование")
+    Container(elk, "Log", "ELK/Kibana", "Централизованное логирование")
 }
 
 Rel(worker, front, "использует")
@@ -24,7 +24,7 @@ Rel(front, monolith, "вызывает", "REST API JSON/HTTP")
 Rel(batch, gcs, "Сохраняет/читает файлы", "GCS API")
 Rel(batch, postgres, "Читает справочники, пишет результаты", "JDBC")
 Rel(batch, prometheus, "Экспортирует метрики", "HTTP")
-Rel(batch, elk, "Отправляет логи", "Fluentd")
+Rel(batch, elk, "Экспортирует логи", "Filebeat")
 Rel(monolith, postgres, "Читает обработанные данные", "JDBC")
 Rel(admin, batch, "Запускает/перезапускает задачи, смотрит статус", "REST API")
 Rel(admin, prometheus, "Просматривает дашборды", "HTTP")
