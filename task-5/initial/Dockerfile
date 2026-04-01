@@ -1,4 +1,4 @@
-FROM openjdk:24-slim
+FROM openjdk:17.0.1-jdk-slim
 # 8080
 WORKDIR .
 COPY build/libs/*.jar app.jar
